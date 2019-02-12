@@ -41,7 +41,7 @@ class InterfaceController: WKInterfaceController, WKCrownDelegate {
         let ambientLightNode = SCNNode()
         ambientLightNode.light = SCNLight()
         ambientLightNode.light!.type = SCNLight.LightType.ambient
-        ambientLightNode.light!.color = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1.0)
+        ambientLightNode.light!.color = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1.0) // color of the moon with earth's shadow 
         scene.rootNode.addChildNode(ambientLightNode)
         
         brownNode.position = SCNVector3(x: 0, y: 0, z: 0)
