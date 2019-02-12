@@ -76,13 +76,6 @@ static LunarPhase *calculator = NULL;
     
 }
 
-- (float (^)(float, float, float, float, float))phaseDegrees
-{
-    return ^(float unscaledNum, float minAllowed, float maxAllowed, float min, float max) {
-        return (maxAllowed - minAllowed) * (unscaledNum - min) / (max - min) + minAllowed;
-    };
-};
-
 - (CGFloat)phaseForDate:(NSDate *)date
 {
     // const
