@@ -21,6 +21,7 @@
 		B9F6A5F12212FCF2003495A2 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F6A5F02212FCF2003495A2 /* NotificationController.swift */; };
 		B9F6A5F32212FCF2003495A2 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F6A5F22212FCF2003495A2 /* ComplicationController.swift */; };
 		B9F6A5F52212FCF3003495A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9F6A5F42212FCF3003495A2 /* Assets.xcassets */; };
+		B9F6A60A2212FD85003495A2 /* LunarPhase.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F6A6092212FD85003495A2 /* LunarPhase.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,9 @@
 		B9F6A5F42212FCF3003495A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B9F6A5F62212FCF3003495A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9F6A5F72212FCF3003495A2 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		B9F6A6052212FD39003495A2 /* LunarPhaseSwift WatchKit Extension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LunarPhaseSwift WatchKit Extension-Bridging-Header.h"; sourceTree = "<group>"; };
+		B9F6A6082212FD85003495A2 /* LunarPhase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LunarPhase.h; sourceTree = "<group>"; };
+		B9F6A6092212FD85003495A2 /* LunarPhase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LunarPhase.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +155,8 @@
 		B9F6A5EB2212FCF2003495A2 /* LunarPhaseSwift WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				B9F6A6082212FD85003495A2 /* LunarPhase.h */,
+				B9F6A6092212FD85003495A2 /* LunarPhase.m */,
 				B9F6A5EC2212FCF2003495A2 /* InterfaceController.swift */,
 				B9F6A5EE2212FCF2003495A2 /* ExtensionDelegate.swift */,
 				B9F6A5F02212FCF2003495A2 /* NotificationController.swift */,
@@ -158,6 +164,7 @@
 				B9F6A5F42212FCF3003495A2 /* Assets.xcassets */,
 				B9F6A5F62212FCF3003495A2 /* Info.plist */,
 				B9F6A5F72212FCF3003495A2 /* PushNotificationPayload.apns */,
+				B9F6A6052212FD39003495A2 /* LunarPhaseSwift WatchKit Extension-Bridging-Header.h */,
 			);
 			path = "LunarPhaseSwift WatchKit Extension";
 			sourceTree = "<group>";
@@ -236,6 +243,7 @@
 					};
 					B9F6A5E62212FCF2003495A2 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -304,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9F6A5F12212FCF2003495A2 /* NotificationController.swift in Sources */,
+				B9F6A60A2212FD85003495A2 /* LunarPhase.m in Sources */,
 				B9F6A5F32212FCF2003495A2 /* ComplicationController.swift in Sources */,
 				B9F6A5EF2212FCF2003495A2 /* ExtensionDelegate.swift in Sources */,
 				B9F6A5ED2212FCF2003495A2 /* InterfaceController.swift in Sources */,
@@ -473,6 +482,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N9987K9442;
 				INFOPLIST_FILE = "LunarPhaseSwift WatchKit Extension/Info.plist";
@@ -485,6 +495,8 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "LunarPhaseSwift WatchKit Extension/LunarPhaseSwift WatchKit Extension-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 5.1;
@@ -495,6 +507,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N9987K9442;
 				INFOPLIST_FILE = "LunarPhaseSwift WatchKit Extension/Info.plist";
@@ -507,6 +520,7 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "LunarPhaseSwift WatchKit Extension/LunarPhaseSwift WatchKit Extension-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 5.1;

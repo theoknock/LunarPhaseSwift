@@ -9,23 +9,67 @@
 import WatchKit
 import Foundation
 
-
-class InterfaceController: WKInterfaceController {
-
+class InterfaceController: WKInterfaceController, WKCrownDelegate {
+    
+    @IBOutlet var sceneView: WKInterfaceSCNScene!
+    
+    var brownNode = SCNNode(geometry: SCNSphere(radius: 5))
+    var cameraNode = SCNNode()
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
+        crownSequencer.delegate = self
+        addScene()
         
-        // Configure interface objects here.
     }
     
-    override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
-        super.willActivate()
+    func addScene() {
+        let scene = SCNScene()
+        
+        let lensNode = SCNNode()
+        lensNode.camera = SCNCamera()
+        lensNode.position = SCNVector3(x: 0, y: 0, z: 10)
+        scene.rootNode.addChildNode(lensNode)
+        
+        let lightNode = SCNNode()
+        lightNode.light = SCNLight()
+        lightNode.light!.type = SCNLight.LightType.omni
+        lightNode.position = SCNVector3(x: 0, y: 0, z: 15)
+        cameraNode.addChildNode(lightNode)
+        scene.rootNode.addChildNode(cameraNode)
+        
+        let ambientLightNode = SCNNode()
+        ambientLightNode.light = SCNLight()
+        ambientLightNode.light!.type = SCNLight.LightType.ambient
+        ambientLightNode.light!.color = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
+        scene.rootNode.addChildNode(ambientLightNode)
+        
+        brownNode.position = SCNVector3(x: 0, y: 0, z: 0)
+        
+        //texture
+        let material3 = SCNMaterial()
+        material3.diffuse.contents = UIImage(named: "moon-diffuse-copy.jpg");
+        brownNode.geometry?.firstMaterial = material3
+        
+        scene.rootNode.addChildNode(brownNode)
+        
+        sceneView.scene = scene
+        
+        let lunarPhase = LunarPhase()
+        let degrees:CGFloat = CGFloat(lunarPhase.phase(for: Date()))
+        cameraNode.runAction(SCNAction.rotateBy(x: 0, y: degrees, z: 0, duration: 1.0), completionHandler: {} )
+        
+    }
+    
+    func crownDidRotate(_ crownSequencer: WKCrownSequencer?, rotationalDelta: Double) {
+        
+        let d:CGFloat = CGFloat(rotationalDelta)
+        cameraNode.runAction(SCNAction.rotateBy(x: 0, y: d, z: 0, duration: 1.0), completionHandler: {} )
+        
     }
     
     override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
-
+    
 }
