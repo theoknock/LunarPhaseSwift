@@ -7,7 +7,7 @@
 //
 
 import ClockKit
-
+//import ExtensionDelegate
 
 class ComplicationController: NSObject, CLKComplicationDataSource {
     
@@ -30,6 +30,25 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     }
     
     // MARK: - Timeline Population
+    
+//    func complicationTemplateExtraLargeRingImage(text: NSString, ringStyle: CLKComplicationRingStyle, fillFraction: Float, color: UIColor) -> CLKComplicationTemplateExtraLargeRingImage
+//    {
+//        let template = CLKComplicationTemplateExtraLargeRingImage()
+//        let delegate = WKExtension.sharedExtension().delegate as ExtensionDelegate
+//        template.imageProvider = CLKImageProvider(onePieceImage: delegate().imageFromScene)
+//        return CLKComplicationTemplateExtraLargeRingImage()
+//    }
+    
+//    CLKComplicationTemplateExtraLargeRingImage *(^complicationTemplateExtraLargeRingImage)(NSString *, CLKComplicationRingStyle, float, UIColor *) = ^(NSString *text, CLKComplicationRingStyle ringStyle, float fillFraction, UIColor *color)
+//    {
+//    CLKComplicationTemplateExtraLargeRingImage *template = [[CLKComplicationTemplateExtraLargeRingImage alloc] init];
+//    template.imageProvider = [CLKImageProvider imageProviderWithOnePieceImage:[[PlanetaryHourDataSource sharedDataSource] imageFromText](text, color, 72.0)];
+//    template.ringStyle = ringStyle;
+//    template.fillFraction = fillFraction;
+//    template.tintColor = color;
+//
+//    return template;
+//    };
     
     func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
         // Call the handler with the current timeline entry

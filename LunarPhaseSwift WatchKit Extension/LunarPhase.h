@@ -21,8 +21,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (CGFloat)phaseForDate:(NSDate *)date;
 
-@property (strong, nonatomic) float (^phaseDegrees)(float unscaledNum, float minAllowed, float maxAllowed, float min, float max);
-
 @end
 
 NS_ASSUME_NONNULL_END

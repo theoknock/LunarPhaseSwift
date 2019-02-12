@@ -9,6 +9,8 @@
 import WatchKit
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate {
+    
+    
 
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
@@ -52,5 +54,12 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
             }
         }
     }
-
+    
 }
+
+//extension ExtensionDelegate
+//{
+//    public func imageFromScene(_ scene: WKInterfaceSCNScene?) -> UIImage {
+//        return (scene?.snapshot() ?? nil)!
+//    }
+//}

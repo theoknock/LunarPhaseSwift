@@ -2,7 +2,7 @@
 //  InterfaceController.swift
 //  LunarPhaseSwift WatchKit Extension
 //
-//  Created by Xcode Developer on 2/12/19.
+//  Created by James Alan Bush on 2/12/19.
 //  Copyright © 2019 The Life of a Demoniac. All rights reserved.
 //
 
@@ -41,7 +41,7 @@ class InterfaceController: WKInterfaceController, WKCrownDelegate {
         let ambientLightNode = SCNNode()
         ambientLightNode.light = SCNLight()
         ambientLightNode.light!.type = SCNLight.LightType.ambient
-        ambientLightNode.light!.color = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
+        ambientLightNode.light!.color = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1.0)
         scene.rootNode.addChildNode(ambientLightNode)
         
         brownNode.position = SCNVector3(x: 0, y: 0, z: 0)
@@ -59,6 +59,7 @@ class InterfaceController: WKInterfaceController, WKCrownDelegate {
         let degrees:CGFloat = CGFloat(lunarPhase.phase(for: Date()))
         cameraNode.runAction(SCNAction.rotateBy(x: 0, y: degrees, z: 0, duration: 1.0), completionHandler: {} )
         
+//        let snapshot = self.sceneView.snapshot()
     }
     
     func crownDidRotate(_ crownSequencer: WKCrownSequencer?, rotationalDelta: Double) {
