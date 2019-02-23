@@ -7,10 +7,10 @@
 //
 
 import ClockKit
-//import ExtensionDelegate
+import WatchKit
 
-class ComplicationController: NSObject, CLKComplicationDataSource {
-    
+class ComplicationController: NSObject, CLKComplicationDataSource
+{
     // MARK: - Timeline Configuration
     
     func getSupportedTimeTravelDirections(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimeTravelDirections) -> Void) {
@@ -29,6 +29,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         handler(.showOnLockScreen)
     }
     
+
     // MARK: - Timeline Population
     
 //    func complicationTemplateExtraLargeRingImage(text: NSString, ringStyle: CLKComplicationRingStyle, fillFraction: Float, color: UIColor) -> CLKComplicationTemplateExtraLargeRingImage
@@ -62,6 +63,9 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     func getTimelineEntries(for complication: CLKComplication, after date: Date, limit: Int, withHandler handler: @escaping ([CLKComplicationTimelineEntry]?) -> Void) {
         // Call the handler with the timeline entries after to the given date
+        let sceneImageDelegate = WKExtension.shared().delegate as? ExtensionDelegate
+        sceneImageDelegate?.moonPhaseImage()
+//        extensionDelegate?.delegate = self
         handler(nil)
     }
     
@@ -69,6 +73,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     func getLocalizableSampleTemplate(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTemplate?) -> Void) {
         // This method will be called once per supported complication, and the results will be cached
+        
         handler(nil)
     }
     

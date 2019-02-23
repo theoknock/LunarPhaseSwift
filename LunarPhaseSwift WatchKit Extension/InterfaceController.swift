@@ -13,14 +13,13 @@ class InterfaceController: WKInterfaceController, WKCrownDelegate {
     
     @IBOutlet var sceneView: WKInterfaceSCNScene!
     
-    var brownNode = SCNNode(geometry: SCNSphere(radius: 5))
+    var moonNode = SCNNode(geometry: SCNSphere(radius: 5))
     var cameraNode = SCNNode()
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         crownSequencer.delegate = self
         addScene()
-        
     }
     
     func addScene() {
@@ -41,17 +40,17 @@ class InterfaceController: WKInterfaceController, WKCrownDelegate {
         let ambientLightNode = SCNNode()
         ambientLightNode.light = SCNLight()
         ambientLightNode.light!.type = SCNLight.LightType.ambient
-        ambientLightNode.light!.color = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1.0) // color of the moon with earth's shadow 
+        ambientLightNode.light!.color = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1.0) // color of the moon with earth's shadow 
         scene.rootNode.addChildNode(ambientLightNode)
         
-        brownNode.position = SCNVector3(x: 0, y: 0, z: 0)
+        moonNode.position = SCNVector3(x: 0, y: 0, z: 0)
         
         //texture
         let material3 = SCNMaterial()
         material3.diffuse.contents = UIImage(named: "moon-diffuse-copy.jpg");
-        brownNode.geometry?.firstMaterial = material3
+        moonNode.geometry?.firstMaterial = material3
         
-        scene.rootNode.addChildNode(brownNode)
+        scene.rootNode.addChildNode(moonNode)
         
         sceneView.scene = scene
         
@@ -73,4 +72,11 @@ class InterfaceController: WKInterfaceController, WKCrownDelegate {
         super.didDeactivate()
     }
     
+}
+
+extension InterfaceController: SceneSnapshotDelegate
+{
+    func snapshotScene() -> UIImage {
+        return self.sceneView.snapshot()
+    }
 }
